@@ -10,6 +10,8 @@ public interface UserService {
 
     public List<User> findAll();
 
-    public Optional<User> findId(int id);
+    public User findId(int id);
+
+    void createUser(User user);
 
 }

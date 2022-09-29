@@ -1,5 +1,6 @@
 package com.example.javafinalchallenge.domain.service;
 
+import com.example.javafinalchallenge.application.controller.exception.ResourceNotFoundException;
 import com.example.javafinalchallenge.domain.model.User;
 import com.example.javafinalchallenge.infrastructure.UserMapper;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,11 @@ public class UserServiceImpl implements UserService  {
         return this.userMapper.findAll();
     }
     @Override
-    public Optional<User> findId(int id) {
-        return this.userMapper.count(id);
+    public User findId(int id) {
+        return this.userMapper.count(id).orElseThrow(() -> new ResourceNotFoundException("resource not found"));
+    }
+    @Override
+    public void createUser(User user) {
+        userMapper.saveUser(user);
     }
 }
