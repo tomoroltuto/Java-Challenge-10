@@ -17,22 +17,15 @@ import java.util.Map;
 public class WebExceptionHandler {
 
     @ExceptionHandler(value = ResourceNotFoundException.class)
-    public ResponseEntity<Map<String, String>> handleNoResourceFound(
-            ResourceNotFoundException e, HttpServletRequest request) {
+    public ResponseEntity<Map<String, String>> handleNoResourceFound(ResourceNotFoundException e, HttpServletRequest request) {
 
-        Map<String, String> body = Map.of(
-                "timestamp", ZonedDateTime.now().toString(),
-                "status", String.valueOf(HttpStatus.NOT_FOUND.value()),
-                "error", HttpStatus.NOT_FOUND.getReasonPhrase(),
-                "message", e.getMessage(),
-                "path", request.getRequestURI());
+        Map<String, String> body = Map.of("timestamp", ZonedDateTime.now().toString(), "status", String.valueOf(HttpStatus.NOT_FOUND.value()), "error", HttpStatus.NOT_FOUND.getReasonPhrase(), "message", e.getMessage(), "path", request.getRequestURI());
         return new ResponseEntity<>(body, HttpStatus.NOT_FOUND);
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Map<String, String> handleValidationExceptions(
-            MethodArgumentNotValidException ex) {
+    public Map<String, String> handleValidationExceptions(MethodArgumentNotValidException ex) {
         Map<String, String> errors = new HashMap<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> {
             String fieldName = ((FieldError) error).getField();
