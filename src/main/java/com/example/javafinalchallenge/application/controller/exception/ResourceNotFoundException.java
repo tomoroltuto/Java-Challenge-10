@@ -1,20 +1,20 @@
 package com.example.javafinalchallenge.application.controller.exception;
 
-public class ResourceNotFoundException extends RuntimeException{
+public class ResourceNotFoundException extends RuntimeException {
 
-    public ResourceNotFoundException(){
+    public ResourceNotFoundException() {
         super();
     }
 
-    public ResourceNotFoundException(String message, Throwable cause){
+    public ResourceNotFoundException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public ResourceNotFoundException(String message){
+    public ResourceNotFoundException(String message) {
         super(message);
     }
 
-    public ResourceNotFoundException(Throwable cause){
+    public ResourceNotFoundException(Throwable cause) {
         super(cause);
     }
 }

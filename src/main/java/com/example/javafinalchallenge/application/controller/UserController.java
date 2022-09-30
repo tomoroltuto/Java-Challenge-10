@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -25,13 +24,15 @@ public class UserController {
     }
 
     @GetMapping
-    public List<User> getAll(){
+    public List<User> getAll() {
         return userService.findAll();
     }
+
     @GetMapping("/{id}")
-    public User getId(@PathVariable("id") int id){
+    public User getId(@PathVariable("id") int id) {
         return userService.findId(id);
     }
+
     @PostMapping
     public ResponseEntity<String> create(@RequestBody @Validated User user) {
         userService.createUser(user);

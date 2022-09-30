@@ -18,7 +18,7 @@ public class WebExceptionHandler {
 
     @ExceptionHandler(value = ResourceNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleNoResourceFound(
-            ResourceNotFoundException e, HttpServletRequest request){
+            ResourceNotFoundException e, HttpServletRequest request) {
 
         Map<String, String> body = Map.of(
                 "timestamp", ZonedDateTime.now().toString(),

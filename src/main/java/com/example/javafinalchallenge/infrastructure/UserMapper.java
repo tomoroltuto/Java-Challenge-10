@@ -13,8 +13,10 @@ import java.util.Optional;
 public interface UserMapper {
     @Select("SELECT * FROM users")
     List<User> findAll();
+
     @Select("SELECT * FROM users WHERE id = #{id}")
     Optional<User> count(int id);
+
     @Insert("insert into users (name, teacher) values (#{name}, #{teacher})")
     void saveUser(User user);
 }
