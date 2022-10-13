@@ -9,5 +9,4 @@ public class JavaFinalChallengeApplication {
   public static void main(String[] args) {
     SpringApplication.run(JavaFinalChallengeApplication.class, args);
   }
-
 }

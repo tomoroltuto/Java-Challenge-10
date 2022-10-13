@@ -11,5 +11,4 @@ public interface UserService {
   User findId(int id);
 
   void createUser(User user);
-
 }

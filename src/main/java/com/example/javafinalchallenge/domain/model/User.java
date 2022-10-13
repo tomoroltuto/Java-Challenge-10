@@ -1,22 +1,20 @@
 package com.example.javafinalchallenge.domain.model;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
-@AllArgsConstructor
+
 @Data
 public class User {
 
   private int id;
 
-  @NotEmpty
-  @Size(min = 1, max = 10, message = "名前は1～10文字に設定してください")
+  @NotBlank(message = "名前が指定されていません。")
   private String name;
 
-  @NotBlank(message = "担当のコースを入力してください")
-  private String teacher;
 
+  @NotBlank(message = "メールアドレスが指定されていません。")
+  @Email
+  private String email;
 }

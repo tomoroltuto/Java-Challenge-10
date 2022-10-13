@@ -11,12 +11,13 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserMapper {
 
-  @Select("SELECT * FROM users")
+  @Select("select * from users")
   List<User> findAll();
 
-  @Select("SELECT * FROM users WHERE id = #{id}")
+  @Select("select * from users where id = #{id}")
   Optional<User> count(int id);
 
-  @Insert("insert into users (name, teacher) values (#{name}, #{teacher})")
-  void saveUser(User user);
+  @Insert("insert into users (name, email) values (#{name}, #{email})")
+  void createUser(User user);
+
 }

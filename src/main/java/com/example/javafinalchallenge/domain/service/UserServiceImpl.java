@@ -21,14 +21,15 @@ public class UserServiceImpl implements UserService {
     return this.userMapper.findAll();
   }
 
+
   @Override
   public User findId(int id) {
-    return this.userMapper.count(id)
+    return userMapper.count(id)
         .orElseThrow(() -> new ResourceNotFoundException("resource not found"));
   }
 
   @Override
   public void createUser(User user) {
-    userMapper.saveUser(user);
+    userMapper.createUser(user);
   }
 }

@@ -37,4 +37,5 @@ public class UserController {
     userService.createUser(user);
     return ResponseEntity.ok("登録完了しました。");
   }
+
 }
