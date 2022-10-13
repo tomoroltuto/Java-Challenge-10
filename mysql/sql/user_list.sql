@@ -2,13 +2,12 @@ DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
   id int unsigned AUTO_INCREMENT,
-  name VARCHAR(100) NOT NULL,
-  teacher VARCHAR(100) NOT NULL,
+  name VARCHAR(60) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  delete_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY(id)
 );
 
-INSERT INTO users (name, teacher) VALUES ("エナミコウジ", "Java・AWS");
-INSERT INTO users (name, teacher) VALUES ("小山 由人", "Java");
-INSERT INTO users (name, teacher) VALUES ("戸部拓人", "Java");
-INSERT INTO users (name, teacher) VALUES ("ウシジマユウタ", "AWS");
-INSERT INTO users (name, teacher) VALUES ("中西 悠人", "AWS");
+INSERT INTO users (name, email) VALUES ("瀬川", "segawa@example.com");
