@@ -32,4 +32,16 @@ public class UserServiceImpl implements UserService {
   public void createUser(User user) {
     userMapper.createUser(user);
   }
+
+  @Override
+  public void updateUser(User user) {
+    userMapper.updateUser(user);
+  }
+
+  @Override
+  public void deleteById(int id) {
+    userMapper.count(id)
+        .orElseThrow(() -> new ResourceNotFoundException("resource not found"));
+    userMapper.deleteById(id);
+  }
 }
